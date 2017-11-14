@@ -41,9 +41,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #fff;
 }
 .main-header__logo {
   width: 200px;
+}
+main {
+  padding: 0 2em 0 2em;
 }
 .searchbar {
   /* toggle to debug non supported browsers */

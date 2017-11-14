@@ -55,7 +55,11 @@ class PagesController extends AppController
         if (!empty($path[1])) {
             $subpage = $path[1];
         }
-        $this->set(compact('page', 'subpage'));
+        // Add the projects list to the home page
+        $this->loadComponent('Paginator');
+        $this->loadModel('Cbases');
+        $cbases = $this->Paginator->paginate($this->Cbases->find('all')->contain(['Projects']));
+        $this->set(compact('page', 'subpage', 'cbases'));
 
         try {
             $this->render(implode('/', $path));
