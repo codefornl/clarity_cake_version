@@ -37,7 +37,6 @@ $cakeDescription = 'Clarity Market Place - Maidstone Council';
     <?= $this->Html->css('additions.css') ?>
   </head>
   <body class="layout">
-    <?= phpinfo() ?>
     <header class="main-header layout__main-header">
       <a href="/">
         <?= $this->Html->image('clarity-marketplace-logo.svg',['class' => 'main-header__logo', 'alt' => 'Clarity marketplace']) ?>
