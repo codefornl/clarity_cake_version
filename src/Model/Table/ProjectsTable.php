@@ -8,7 +8,6 @@ class ProjectsTable extends Table
 {
     public function initialize(array $config)
     {
-        //$this->belongsTo('Cbases');
         $this->addBehavior('Timestamp');
     }
 }

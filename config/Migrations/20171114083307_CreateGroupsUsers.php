@@ -1,7 +1,7 @@
 <?php
 use Migrations\AbstractMigration;
 
-class CreateUsers extends AbstractMigration
+class CreateGroupsUsers extends AbstractMigration
 {
     /**
      * Change Method.
@@ -12,23 +12,14 @@ class CreateUsers extends AbstractMigration
      */
     public function change()
     {
-        $table = $this->table('users');
-        $table->addColumn('name', 'string', [
-            'default' => null,
-            'limit' => 255,
-            'null' => false,
-        ]);
-        $table->addColumn('email', 'string', [
-            'default' => null,
-            'limit' => 255,
-            'null' => false,
-        ]);
-        $table->addColumn('image', 'string', [
-            'default' => null,
-            'limit' => 255,
-            'null' => true,
-        ]);
-        $table->addColumn('token', 'string', [
+        $table = $this->table('groups_users');
+        $table->addColumn('group_id', 'integer', [
+          'limit' => 11
+        ])->addForeignKey('group_id', 'groups', 'id');
+        $table->addColumn('user_id', 'integer', [
+          'limit' => 11
+        ])->addForeignKey('user_id', 'users', 'id');
+        $table->addColumn('role', 'string', [
             'default' => null,
             'limit' => 255,
             'null' => false,

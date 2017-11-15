@@ -4,7 +4,7 @@ use Migrations\AbstractSeed;
 /**
  * Users seed.
  */
-class UsersSeed extends AbstractSeed
+class GroupsUsersSeed extends AbstractSeed
 {
     /**
      * Run Method.
@@ -20,22 +20,21 @@ class UsersSeed extends AbstractSeed
     {
         $data = [
             [
-                'name'    => 'Johan Groenen',
-                'email'   => 'johan@example.com',
-                'image'   => 'https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAArrAAAAJDI3ZDk5NWNmLTk0OGUtNDQ2OS04YWU0LTVhYzRkNGMwYmJlYg.jpg',
-                'token'   => md5(uniqid(rand(), true)),
+                'group_id'    => 1,
+                'user_id'   => 1,
+                'role'   => 'curator',
                 'created' => date('Y-m-d H:i:s'),
                 'modified' => date('Y-m-d H:i:s')
             ],[
-                'name'    => 'Milo van der Linden',
-                'email'   => 'milo@example.com',
-                'token'   => md5(uniqid(rand(), true)),
+              'group_id'    => 2,
+              'user_id'   => 2,
+              'role'   => 'curator',
                 'created' => date('Y-m-d H:i:s'),
                 'modified' => date('Y-m-d H:i:s')
             ]
         ];
 
-        $table = $this->table('users');
+        $table = $this->table('groups_users');
         $table->insert($data)->save();
     }
 }

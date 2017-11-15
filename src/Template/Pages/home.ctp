@@ -26,24 +26,24 @@ $this->layout = 'default';
       <input type="text" class="searchbar__input" placeholder="Search eGovernment applications" name="q" value="">
       <button class="searchbar__button"><?= $this->Html->image('searchbar-icon.svg') ?></button>
     </form>
-    <?php foreach ($cbases as $cbase): ?>
+    <?php foreach ($groups as $group): ?>
     <div class="layout__row">
         <div class="layout__list-meta">
           <div class="list-summary">
-            <a href="/<?= $cbase->name ?>">
-              <h2 class="list-summary__title"><?= $cbase->name ?></h2>
+            <a href="/<?= $group->name ?>">
+              <h2 class="list-summary__title"><?= $group->name ?></h2>
             </a>
-            <div class="list-summary__count"><?= count($cbase->projects) ?> projects</div>
-            <div><?= $cbase->created->format(DATE_RFC850) ?></div>
-            <p class="list-summary__description">Deze lijst wordt bijgehouden door Code for NL. Voor meer informatie, zie <a href="http://www.codefor.nl">www.codefor.nl</a>. De lijst bevat personen, organisaties, projecten en applicaties op het vlak van digitale overheid en open source samenwerking.</p>
+            <div class="list-summary__count"><?= count($group->projects) ?> projects</div>
+            <p class="list-summary__created"><?= $group->created->format(DATE_RFC850) ?></p>
+            <p class="list-summary__description"><?= $group->description ?></p>
             <a href="/" class="back-link layout__back" style="text-align: left; display: block; margin-top: 20px">&larr; Back to homepage</a>
             <div class="list-summary__curator">
                 <div class="curator">
-                    <img src="https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAArrAAAAJDI3ZDk5NWNmLTk0OGUtNDQ2OS04YWU0LTVhYzRkNGMwYmJlYg.jpg" class="curator__avatar">
+                    <img src="<?= $group->users[0]->image ?>" class="curator__avatar">
                     <div class="curator__contact">
-                      <h3 class="curator__name">Johan Groenen</h3>
+                      <h3 class="curator__name"><?= $group->users[0]->name ?></h3>
                       <div class="curator__badge">curator</div>
-                      <a href="mailto:johan@codefornl" class="curator__email">johan@codefornl</a>
+                      <a href="mailto:<?= $group->users[0]->email ?>" class="curator__email"><?= $group->users[0]->email ?></a>
                     </div>
                 </div>
             </div>
@@ -53,8 +53,8 @@ $this->layout = 'default';
 
         </div>
         <div class="layout__project-list">
-          <?php foreach ($cbase->projects as $project): ?>
-            <a href="/<?= $cbase->name ?>/<?= $project->id ?>/<?= $project->name ?>">
+          <?php foreach ($group->projects as $project): ?>
+            <a href="/<?= $group->name ?>/<?= $project->id ?>/<?= $project->name ?>">
               <div class="project layout__project-list-item">
                 <img src="http://img.codefor.nl?url=https%3A%2F%2Fzoek.officielebekendmakingen.nl%2Fstcrt-2014-37951-1.png&height=426&width=640" class="project__image">
                 <div class="project__meta">

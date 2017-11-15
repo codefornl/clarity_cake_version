@@ -22,7 +22,7 @@ class GroupsSeed extends AbstractSeed
             [
                 'name'    => 'Code For NL',
                 'image'   => 'http://www.codefor.nl/img/larger_CfNL.png',
-                'description' => '',
+                'description' => 'This list is maintained by <a href="http://www.codefor.nl">Code For NL</a>. The list contains people, organisations, projects and applications that are open source and about eDemocracy.',
                 'created' => date('Y-m-d H:i:s'),
                 'modified' => date('Y-m-d H:i:s')
             ],[
@@ -32,7 +32,7 @@ class GroupsSeed extends AbstractSeed
             ]
         ];
 
-        $table = $this->table('cbases');
+        $table = $this->table('groups');
         $table->insert($data)->save();
     }
 }
