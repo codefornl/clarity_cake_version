@@ -26,6 +26,11 @@ use Cake\View\Exception\MissingTemplateException;
  *
  * @link https://book.cakephp.org/3.0/en/controllers/pages-controller.html
  */
+
+ /**
+ * @SWG\Info(title="My First API", version="0.1")
+ */
+
 class PagesController extends AppController
 {
 
