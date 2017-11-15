@@ -4,7 +4,7 @@ namespace App\Model\Entity;
 
 use Cake\ORM\Entity;
 
-class Cbase extends Entity
+class User extends Entity
 {
     protected $_accessible = [
         '*' => true,

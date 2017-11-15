@@ -1,7 +1,7 @@
 <?php
 use Migrations\AbstractMigration;
 
-class CreateCbases extends AbstractMigration
+class CreateUsers extends AbstractMigration
 {
     /**
      * Change Method.
@@ -12,7 +12,7 @@ class CreateCbases extends AbstractMigration
      */
     public function change()
     {
-        $table = $this->table('cbases');
+        $table = $this->table('users');
         $table->addColumn('name', 'string', [
             'default' => null,
             'limit' => 255,
@@ -27,15 +27,6 @@ class CreateCbases extends AbstractMigration
             'default' => null,
             'limit' => 255,
             'null' => false,
-        ]);
-        $table->addColumn('image', 'string', [
-            'default' => null,
-            'limit' => 255,
-            'null' => true,
-        ]);
-        $table->addColumn('description', 'text', [
-            'default' => null,
-            'null' => true,
         ]);
         $table->addColumn('created', 'datetime', [
             'default' => null,

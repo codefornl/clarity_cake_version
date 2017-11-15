@@ -58,8 +58,8 @@ class PagesController extends AppController
         // Add the projects list to the home page
         $this->loadComponent('Paginator');
         $this->loadModel('Cbases');
-        $cbases = $this->Paginator->paginate($this->Cbases->find('all')->contain(['Projects']));
-        $this->set(compact('page', 'subpage', 'cbases'));
+        $groups = $this->Paginator->paginate($this->Groups->find('all')->contain(['Projects', 'Users']));
+        $this->set(compact('page', 'groups'));
 
         try {
             $this->render(implode('/', $path));

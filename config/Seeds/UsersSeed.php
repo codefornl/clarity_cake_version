@@ -2,9 +2,9 @@
 use Migrations\AbstractSeed;
 
 /**
- * Cbase seed.
+ * Users seed.
  */
-class CbasesSeed extends AbstractSeed
+class UsersSeed extends AbstractSeed
 {
     /**
      * Run Method.
@@ -23,8 +23,6 @@ class CbasesSeed extends AbstractSeed
                 'name'    => 'Johan Groenen',
                 'email'   => 'johan@example.com',
                 'token'   => md5(uniqid(rand(), true)),
-                'image'   => 'https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAArrAAAAJDI3ZDk5NWNmLTk0OGUtNDQ2OS04YWU0LTVhYzRkNGMwYmJlYg.jpg',
-                'description' => '',
                 'created' => date('Y-m-d H:i:s'),
                 'modified' => date('Y-m-d H:i:s')
             ],[

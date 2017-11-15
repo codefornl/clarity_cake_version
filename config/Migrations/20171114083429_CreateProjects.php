@@ -74,10 +74,10 @@ class CreateProjects extends AbstractMigration
             'default' => null,
             'null' => false,
         ]);
-        $table->addColumn('cbase_id', 'integer', [
+        $table->addColumn('group_id', 'integer', [
           'limit' => 11
         ])
-            ->addForeignKey('cbase_id', 'cbases', 'id');
+            ->addForeignKey('group_id', 'groups', 'id');
         $table->create();
     }
 }

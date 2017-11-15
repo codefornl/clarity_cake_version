@@ -31,7 +31,7 @@ class ProjectsSeed extends AbstractSeed
               'published' => true,
               'created' => date('Y-m-d H:i:s'),
               'modified' => date('Y-m-d H:i:s'),
-              'cbase_id' => 1
+              'group_id' => 1
           ]
         ];
 
