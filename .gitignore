@@ -15,7 +15,7 @@
 !/tmp/sessions/empty
 /tmp/tests/*
 !/tmp/tests/empty
-
+config/Migrations/schema-dump-default.lock
 /logs/*
 !/logs/empty
 

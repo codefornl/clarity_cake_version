@@ -18,6 +18,11 @@ class CreateProjects extends AbstractMigration
             'limit' => 255,
             'null' => false,
         ]);
+        $table->addColumn('slug', 'string', [
+            'default' => null,
+            'limit' => 255,
+            'null' => false,
+        ]);
         $table->addColumn('description', 'text', [
             'default' => null,
             'null' => true,
@@ -63,7 +68,7 @@ class CreateProjects extends AbstractMigration
             'null' => true,
         ]);
         $table->addColumn('published', 'boolean', [
-            'default' => false,
+            'default' => true,
             'null' => false,
         ]);
         $table->addColumn('created', 'datetime', [

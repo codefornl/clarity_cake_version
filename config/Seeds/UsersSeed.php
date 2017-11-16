@@ -20,15 +20,24 @@ class UsersSeed extends AbstractSeed
     {
         $data = [
             [
+                'id' => 1,
                 'name'    => 'Johan Groenen',
-                'email'   => 'johan@example.com',
+                'email'   => 'johan@codefor.nl',
                 'image'   => 'https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAArrAAAAJDI3ZDk5NWNmLTk0OGUtNDQ2OS04YWU0LTVhYzRkNGMwYmJlYg.jpg',
                 'token'   => md5(uniqid(rand(), true)),
                 'created' => date('Y-m-d H:i:s'),
                 'modified' => date('Y-m-d H:i:s')
             ],[
+                'id' => 2,
                 'name'    => 'Milo van der Linden',
-                'email'   => 'milo@example.com',
+                'email'   => 'milo@codefor.nl',
+                'token'   => md5(uniqid(rand(), true)),
+                'created' => date('Y-m-d H:i:s'),
+                'modified' => date('Y-m-d H:i:s')
+            ],[
+                'id' => 3,
+                'name'    => 'Ivonne Jansen-Dings',
+                'email'   => 'ivonne@waag.org',
                 'token'   => md5(uniqid(rand(), true)),
                 'created' => date('Y-m-d H:i:s'),
                 'modified' => date('Y-m-d H:i:s')

@@ -20,14 +20,32 @@ class GroupsUsersSeed extends AbstractSeed
     {
         $data = [
             [
-                'group_id'    => 1,
+                'group_id'    => 4,
                 'user_id'   => 1,
                 'role'   => 'curator',
                 'created' => date('Y-m-d H:i:s'),
                 'modified' => date('Y-m-d H:i:s')
             ],[
-              'group_id'    => 2,
+              'group_id'    => 5,
               'user_id'   => 2,
+              'role'   => 'curator',
+                'created' => date('Y-m-d H:i:s'),
+                'modified' => date('Y-m-d H:i:s')
+            ],[
+              'group_id'    => 20,
+              'user_id'   => 1,
+              'role'   => 'curator',
+                'created' => date('Y-m-d H:i:s'),
+                'modified' => date('Y-m-d H:i:s')
+            ],[
+              'group_id'    => 23,
+              'user_id'   => 1,
+              'role'   => 'curator',
+                'created' => date('Y-m-d H:i:s'),
+                'modified' => date('Y-m-d H:i:s')
+            ],[
+              'group_id'    => 24,
+              'user_id'   => 1,
               'role'   => 'curator',
                 'created' => date('Y-m-d H:i:s'),
                 'modified' => date('Y-m-d H:i:s')
