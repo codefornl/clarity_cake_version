@@ -34,6 +34,19 @@ $cakeDescription = 'Clarity Market Place - Maidstone Council';
     .card-deck {
       padding: 0.7em;
     }
+    .user-image{
+      width: 60px;
+      height: 60px;
+      -webkit-border-radius: 60px;
+      -webkit-background-clip: padding-box;
+      -moz-border-radius: 60px;
+      -moz-background-clip: padding;
+      border-radius: 60px;
+      background-clip: padding-box;
+      background-size: cover;
+      background-position: center center;
+      margin: 0.5em auto;
+    }
     .card-header-image{
       width: 120px;
       height: 120px;
@@ -50,13 +63,7 @@ $cakeDescription = 'Clarity Market Place - Maidstone Council';
     main .row {
       padding: 0.5em;
     }
-    main .row:nth-child(even) {
-      background-color: #f1f3fb !important;
-    }
-    main .row:nth-child(odd) {
-      background-color: #ebeef9 !important;
-    }
-    </style
+    </style>
   </head>
 
   <body>

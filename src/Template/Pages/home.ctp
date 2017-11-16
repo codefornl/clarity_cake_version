@@ -33,23 +33,37 @@ $this->layout = 'default';
   <?php foreach ($groups as $group): ?>
   <div class="row">
       <div class="col-lg-3">
-        <div class="card">
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item"><a href="/<?= $group->name ?>"><h2><?= $group->name ?></h2></a></li>
-            <li class="list-group-item"><?= count($group->projects) ?> projects</li>
-            <li class="list-group-item"><?= $group->description ?></li>
-            <li class="list-group-item"><?= $group->created->format(DATE_RFC850) ?></li>
-          </ul>
+        <div class="row">
+          <div class="col-12">
+            <p><a href="/<?= $group->name ?>"><h2><?= $group->name ?></h2></a></p>
+            <p><?= count($group->projects) ?> projects</p>
+            <p><?= $group->description ?></p>
+            <p><small class="text-muted"><?= $group->created->format(DATE_RFC850) ?></small></p>
+          </div>
         </div>
-        <?php if (sizeof($group->users) > 0): ?>
-        <div class="card">
-          <div class="card-header-image" src="" alt="" style="background-image: url(<?= $group->users[0]->image ?>)"></div>
-            <div class="card-body">
-              <h4 class="card-title"><?= $group->users[0]->name ?></h4>
-                <p class="card-text"><a href="mailto:<?= $group->users[0]->email ?>" class="curator__email"><?= $group->users[0]->email ?></a></p>
-            </div>
-        </div>
-        <?php endif; ?>
+          <?php if (sizeof($group->users) > 0): ?>
+            <div class="row">
+                <div class="col-12">
+                  <div class="card text-white bg-dark mb-3">
+                    <div class="card-block">
+                      <div class="row">
+                        <div class="col-md-8 col-sm-8">
+                          <p class="text-muted">Curator</p>
+                          <p class="card-text"><?= $group->users[0]->name ?></p>
+                        </div>
+                        <div class="col-md-2 col-sm-2 text-center">
+                          <img class="user-image" src="<?= $group->users[0]->image ?>" alt="" style="border-radius:50%;">
+                        </div>
+                        <div class="col-md-4 col-sm-4 text-center">
+                          <a class="btn btn-primary btn-block btn-md" href="mailto:<?= $group->users[0]->email ?>">Contact</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+          <?php endif; ?>
       </div>
       <div class="col-lg-9">
         <div class="container">
@@ -79,5 +93,5 @@ $this->layout = 'default';
         </div>
       </div>
     </div>
-  </div>
-  <?php endforeach; ?>
+                </div>
+    <?php endforeach; ?>
