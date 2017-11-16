@@ -16,37 +16,68 @@
 $cakeDescription = 'Clarity Market Place - Maidstone Council';
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <?= $this->Html->charset() ?>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
     <title>
         <?= $cakeDescription ?>:
         <?= $this->fetch('title') ?>
     </title>
     <?= $this->Html->meta('icon') ?>
-
-    <?= $this->Html->css('foundation.css') ?>
-    <?= $this->Html->css('style.css') ?>
-
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
-    <?= $this->Html->css('additions.css') ?>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <style>
+    .card-deck {
+      padding: 0.7em;
+    }
+    .card-header-image{
+      width: 120px;
+      height: 120px;
+      -webkit-border-radius: 120px;
+      -webkit-background-clip: padding-box;
+      -moz-border-radius: 120px;
+      -moz-background-clip: padding;
+      border-radius: 120px;
+      background-clip: padding-box;
+      background-size: cover;
+      background-position: center center;
+      margin: 0.5em auto;
+    }
+    main .row {
+      padding: 0.5em;
+    }
+    main .row:nth-child(even) {
+      background-color: #f1f3fb !important;
+    }
+    main .row:nth-child(odd) {
+      background-color: #ebeef9 !important;
+    }
+    </style
   </head>
-  <body class="layout layout__main-content main-content">
-    <header class="main-header layout__main-header">
-      <a href="/">
-        <?= $this->Html->image('clarity-marketplace-logo.svg',['class' => 'main-header__logo', 'alt' => 'Clarity marketplace']) ?>
-      </a>
+
+  <body>
+    <header class="container-fluid">
+      <div class="row">
+        <div class="col text-center">
+          <a href="/">
+            <?= $this->Html->image('clarity-marketplace-logo.svg',['class' => 'main-header__logo', 'alt' => 'Clarity marketplace']) ?>
+          </a>
+        </div>
+      </div>
     </header>
     <?= $this->Flash->render() ?>
-   <main>
+   <main class="container-fluid">
       <?= $this->fetch('content') ?>
     </main>
     <footer>
             <a href="https://github.com/codefornl/clarity">Github</a>
     </footer>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
   </body>
 </html>

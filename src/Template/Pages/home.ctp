@@ -22,60 +22,62 @@ use Cake\Network\Exception\NotFoundException;
 $this->layout = 'default';
 
 ?>
-    <form class="searchbar layout__searchbar" style="visibility: hidden">
-      <input type="text" class="searchbar__input" placeholder="Search eGovernment applications" name="q" value="">
-      <button class="searchbar__button"><?= $this->Html->image('searchbar-icon.svg') ?></button>
-    </form>
-    <?php foreach ($groups as $group): ?>
-    <div class="layout__row">
-        <div class="layout__list-meta">
-          <div class="list-summary">
-            <a href="/<?= $group->name ?>">
-              <h2 class="list-summary__title"><?= $group->name ?></h2>
-            </a>
-            <div class="list-summary__count"><?= count($group->projects) ?> projects</div>
-            <p class="list-summary__created"><?= $group->created->format(DATE_RFC850) ?></p>
-            <p class="list-summary__description"><?= $group->description ?></p>
-            <a href="/" class="back-link layout__back" style="text-align: left; display: block; margin-top: 20px">&larr; Back to homepage</a>
-            <div class="list-summary__curator">
-                <div class="curator">
-                    <img src="<?= $group->users[0]->image ?>" class="curator__avatar">
-                    <div class="curator__contact">
-                      <h3 class="curator__name"><?= $group->users[0]->name ?></h3>
-                      <div class="curator__badge">curator</div>
-                      <a href="mailto:<?= $group->users[0]->email ?>" class="curator__email"><?= $group->users[0]->email ?></a>
-                    </div>
-                </div>
-            </div>
-          </div>
-        </div>
-        <div>
-
-        </div>
-        <div class="layout__project-list">
-          <?php foreach ($group->projects as $project): ?>
-            <a href="/<?= $group->name ?>/<?= $project->id ?>/<?= $project->name ?>">
-              <div class="project layout__project-list-item">
-                <img src="<?= $project->image ?>" class="project__image">
-                <div class="project__meta">
-                    <div class="project__summary">
-                        <h3 class="project__title"><?= $project->name ?></h3>
-                        <h4 class="project__location"><?= $project->country ?></h4>
-                    </div>
-                    <div class="project__tools">
-                        <img src="/svg/tools-icon.svg" class="project__tools-icon">
-                        <span class="project__tools-count">1 tool</span>
-                    </div>
-                </div>
-              </div>
-          </a>
-
-          <?php endforeach; ?>
-
-
-
-
-        </div>
-
+  <div class="row">
+    <div class="col text-center">
+      <form class="searchbar layout__searchbar" style="visibility: hidden">
+        <input type="text" class="searchbar__input" placeholder="Search eGovernment applications" name="q" value="">
+        <button class="searchbar__button"><?= $this->Html->image('searchbar-icon.svg') ?></button>
+      </form>
     </div>
-    <?php endforeach; ?>
+  </div>
+  <?php foreach ($groups as $group): ?>
+  <div class="row">
+      <div class="col-lg-3">
+        <div class="card">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><a href="/<?= $group->name ?>"><h2><?= $group->name ?></h2></a></li>
+            <li class="list-group-item"><?= count($group->projects) ?> projects</li>
+            <li class="list-group-item"><?= $group->description ?></li>
+            <li class="list-group-item"><?= $group->created->format(DATE_RFC850) ?></li>
+          </ul>
+        </div>
+        <?php if (sizeof($group->users) > 0): ?>
+        <div class="card">
+          <div class="card-header-image" src="" alt="" style="background-image: url(<?= $group->users[0]->image ?>)"></div>
+            <div class="card-body">
+              <h4 class="card-title"><?= $group->users[0]->name ?></h4>
+                <p class="card-text"><a href="mailto:<?= $group->users[0]->email ?>" class="curator__email"><?= $group->users[0]->email ?></a></p>
+            </div>
+        </div>
+        <?php endif; ?>
+      </div>
+      <div class="col-lg-9">
+        <div class="container">
+          <?php $i = 1; ?>
+              <?php foreach ($group->projects as $project): ?>
+              <?php if ($i == 1): ?>
+                <div class="card-deck">
+              <?php endif; ?>
+                  <div class="card text-center">
+                    <div class="card-header-image" src="" alt="" style="background-image: url(<?= $project->image ?>)"></div>
+                    <div class="card-body">
+                      <h4 class="card-title"><?= $project->name ?></h4>
+                      <p class="card-text"><?= $project->country ?></p>
+                    </div>
+                    <div class="card-footer">
+                      <a href="/<?= $group->name ?>/<?= $project->id ?>/<?= $project->name ?>" class="btn btn-primary">More</a>
+                    </div>
+                  </div>
+              <?php
+                $i = $i + 1;
+                if ($i == 5):
+                  $i = 1;
+                  ?>
+                </div>
+              <?php endif; ?>
+            <?php endforeach; ?>
+        </div>
+      </div>
+    </div>
+  </div>
+  <?php endforeach; ?>

@@ -21,7 +21,7 @@ class ProjectsSeed extends AbstractSeed
         $data = [
           [
             "id" => 1,
-        		"name" => "Seg-Social Seg. Social M\u00f3vil",
+        		"name" => "Seg-Social Seg. Social Mövil",
         		"slug" => preg_replace('/[[:space:]]+/', '-', strtolower("Seg-Social Seg. Social Movil")) . '-' . uniqid(),
         		"description" => "This application provides access to all information that the Secretary of State of the Spanish Social Security makes available to the citizens. The application allows users to:\n- Obtain certificates, consultations and personal accounts for Social Security.\n- Get prior appointment for procedures in Social Security offices.\n- Get contact information for the different entities managing Social Security.\n- Consult the nearest office to its present location.\n- Check the location of hospitas.\n- Access via link to the main information websites of Social Security.\n- Be informed of the latest developments in Social Security.",
         		"image" => "https://clarity-csa.eu/sites/default/files/styles/large/public/portfolio/movil%20kopya.jpg?itok=mC2AWVF6",
