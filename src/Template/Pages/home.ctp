@@ -56,7 +56,7 @@ $this->layout = 'default';
           <?php foreach ($group->projects as $project): ?>
             <a href="/<?= $group->name ?>/<?= $project->id ?>/<?= $project->name ?>">
               <div class="project layout__project-list-item">
-                <img src="http://img.codefor.nl?url=https%3A%2F%2Fzoek.officielebekendmakingen.nl%2Fstcrt-2014-37951-1.png&height=426&width=640" class="project__image">
+                <img src="<?= $project->image ?>" class="project__image">
                 <div class="project__meta">
                     <div class="project__summary">
                         <h3 class="project__title"><?= $project->name ?></h3>
