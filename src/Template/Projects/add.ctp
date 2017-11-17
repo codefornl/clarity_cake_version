@@ -3,18 +3,24 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Project $project
  */
+ $this->Form->templates($form_templates['shortForm']);
+
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('List Projects'), ['action' => 'index']) ?></li>
-    </ul>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#"><?= __('Add Project') ?></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse justify-content-end" id="projects-nav">
+    <form class="form-inline">
+      <?= $this->Html->link(__('Back to Projects'), ['action' => 'index'], array('class' => 'btn btn-default')) ?>
+    </form>
+  </div>
 </nav>
-<div class="projects form large-9 medium-8 columns content">
+<div class="container-fluid">
     <?= $this->Form->create($project) ?>
-    <fieldset>
-        <legend><?= __('Add Project') ?></legend>
-        <?php
+       <?php
             echo $this->Form->control('name');
             echo $this->Form->control('description');
             echo $this->Form->control('image');
@@ -28,7 +34,7 @@
             echo $this->Form->control('published');
             echo $this->Form->control('group_id');
         ?>
-    </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
+
+    <?= $this->Form->button(__('Submit'), array('class' => 'btn btn-default')) ?>
     <?= $this->Form->end() ?>
 </div>

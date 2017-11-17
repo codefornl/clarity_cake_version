@@ -10,9 +10,11 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <div class="collapse navbar-collapse justify-content-end" id="projects-nav">
     <form class="form-inline">
-      <?= $this->Html->link(__('New Project'), ['action' => 'add'], array('class' => 'btn btn-outline-success')) ?>
+      <?= $this->Html->link(__('List Groups'), ['controller' => 'Groups', 'action' => 'index'], array('class' => 'btn btn-link')) ?>
+      <?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index'], array('class' => 'btn btn-link')) ?>
+      <?= $this->Html->link(__('Add Project'), ['action' => 'add'], array('class' => 'btn btn-outline-success')) ?>
     </form>
   </div>
 </nav>
@@ -22,7 +24,7 @@
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('name') ?></th>
-                <!--<th scope="col"><?= $this->Paginator->sort('image') ?></th>-->
+                <th scope="col"><?= $this->Paginator->sort('image') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('type') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('country') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('category') ?></th>
@@ -46,7 +48,7 @@
             <?php endif; ?>
                 <td><?= $this->Number->format($project->id) ?></td>
                 <td><a href="<?= h($project->website) ?>"><?= h($project->name) ?></a></td>
-                <!--<td><?= h($project->image) ?></td>-->
+                <td><img src="<?= h($project->image) ?>" height="200" width="200"/></td>
                 <td><?= h($project->type) ?></td>
                 <td><?= h($project->country) ?></td>
                 <td><?= h($project->category) ?></td>

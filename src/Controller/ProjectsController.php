@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Core\Configure;
 
 /**
  * Projects Controller
@@ -50,6 +51,7 @@ class ProjectsController extends AppController
      */
     public function add()
     {
+        $this->set('form_templates', Configure::read('Templates'));
         $project = $this->Projects->newEntity();
         if ($this->request->is('post')) {
             $project = $this->Projects->patchEntity($project, $this->request->getData());
@@ -73,6 +75,7 @@ class ProjectsController extends AppController
      */
     public function edit($id = null)
     {
+        $this->set('form_templates', Configure::read('Templates'));
         $project = $this->Projects->get($id, [
             'contain' => []
         ]);

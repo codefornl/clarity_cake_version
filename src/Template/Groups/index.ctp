@@ -4,25 +4,30 @@
  * @var \App\Model\Entity\Group[]|\Cake\Collection\CollectionInterface $groups
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Group'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Projects'), ['controller' => 'Projects', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Project'), ['controller' => 'Projects', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?></li>
-    </ul>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#"><?= __('Groups') ?></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse justify-content-end" id="projects-nav">
+    <form class="form-inline">
+      <?= $this->Html->link(__('List Projects'), ['controller' => 'Projects', 'action' => 'index'], array('class' => 'btn btn-link')) ?>
+      <!--<?= $this->Html->link(__('New Project'), ['controller' => 'Projects', 'action' => 'add'], array('class' => 'btn btn-link')) ?>-->
+      <?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index'], array('class' => 'btn btn-link')) ?>
+      <!--<?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add'], array('class' => 'btn btn-link')) ?>-->
+      <?= $this->Html->link(__('Add Group'), ['action' => 'add'], array('class' => 'btn btn-outline-success')) ?>
+    </form>
+  </div>
 </nav>
-<div class="groups index large-9 medium-8 columns content">
-    <h3><?= __('Groups') ?></h3>
-    <table cellpadding="0" cellspacing="0">
+<div class="container-fluid">
+    <table class="table table-responsive">
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('name') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('image') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('created') ?></th>
+                <!--<th scope="col"><?= $this->Paginator->sort('created') ?></th>-->
                 <th scope="col"><?= $this->Paginator->sort('modified') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
@@ -33,12 +38,14 @@
                 <td><?= $this->Number->format($group->id) ?></td>
                 <td><?= h($group->name) ?></td>
                 <td><?= h($group->image) ?></td>
-                <td><?= h($group->created) ?></td>
+                <!--<td><?= h($group->created) ?></td>-->
                 <td><?= h($group->modified) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $group->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $group->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $group->id], ['confirm' => __('Are you sure you want to delete # {0}?', $group->id)]) ?>
+                  <div class="btn-group" role="group" aria-label="Row functions">
+                    <?= $this->Html->link("<i class='fa fa-eye'></i>", ['action' => 'view', $group->id], array('class' => 'btn btn-link', 'title' => __('View'), 'escape' => false)) ?>
+                    <?= $this->Html->link("<i class='fa fa-pencil'></i>", ['action' => 'edit', $group->id], array('class' => 'btn btn-link', 'title' => __('Edit'), 'escape' => false)) ?>
+                    <?= $this->Form->postLink("<i class='fa fa-trash'></i>", ['action' => 'delete', $group->id], ['confirm' => __('Are you sure you want to delete # {0}?', $group->id), 'class' => 'btn btn-link', 'title' => __('Delete'), 'escape' => false]) ?>
+                  </div>
                 </td>
             </tr>
             <?php endforeach; ?>
