@@ -19,7 +19,7 @@ use Cake\Datasource\ConnectionManager;
 use Cake\Error\Debugger;
 use Cake\Network\Exception\NotFoundException;
 
-$this->layout = 'default';
+$this->layout = 'public';
 
 ?>
   <div class="row">
@@ -62,7 +62,6 @@ $this->layout = 'default';
                   </div>
                 </div>
               </div>
-
           <?php endif; ?>
       </div>
       <div class="col-lg-9">

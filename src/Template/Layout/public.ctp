@@ -31,7 +31,6 @@ $cakeDescription = 'Clarity Market Place - Maidstone Council';
     <?= $this->fetch('script') ?>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <script src="https://use.fontawesome.com/b30cdb304f.js"></script>
-
     <style>
     .card-deck {
       padding: 0.7em;
@@ -69,6 +68,15 @@ $cakeDescription = 'Clarity Market Place - Maidstone Council';
   </head>
 
   <body>
+    <header class="container-fluid">
+      <div class="row">
+        <div class="col text-center">
+          <a href="/">
+            <?= $this->Html->image('clarity-marketplace-logo.svg', ['class' => 'main-header__logo', 'alt' => 'Clarity marketplace']) ?>
+          </a>
+        </div>
+      </div>
+    </header>
     <?= $this->Flash->render() ?>
    <main class="container-fluid">
       <?= $this->fetch('content') ?>
